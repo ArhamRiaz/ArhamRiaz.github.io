@@ -41,16 +41,15 @@
 	</nav>
 
 	<section class="home-section">
-		<div class="space-y-0.3">
-			<h1 class="text-[48px] font-semibold text-stone-700">Arham Riaz</h1>
-			<h4 class=" text-[24px] text-stone-500">Software Developer</h4>
+		<div class="space-y-0.5">
+			<h1 class="text-[48px] font-semibold">Arham Riaz</h1>
+			<h4 class=" text-[24px]">Software Developer</h4>
 		</div>
 	</section>
-	<!-- <LineDecoration class="absolute transform rotate-2" /> -->
 
-	<section class="home-section space-y-1 text-stone-700">
+	<section class="home-section space-y-1">
 		<h3 class="section-label pt-15 pb-2 text-[18px]">About</h3>
-		<div class="text-sm text-stone-600 md:text-base">
+		<div class="text-sm md:text-base">
 			<p>
 				Hi!! I’m a software developer with an Honours Bachelor of Computer Science Co-op from
 				Carleton University! I made this website to act as a portfolio for my projects and to
@@ -59,7 +58,11 @@
 			<p>Hobbies: Rock Climbing, Film, NBA, Cricket, Gaming</p>
 
 			<p>
-				Currently playing: Hollow Knight <img src="/hollow knight.jpg" alt="hollow knight" />
+				Currently playing: Hollow Knight <img
+					src="/hollow knight.jpg"
+					alt="hollow knight"
+					class="inline-block h-60 w-auto align-middle"
+				/>
 			</p>
 		</div>
 		<ExperienceTimeline {experiences} />
