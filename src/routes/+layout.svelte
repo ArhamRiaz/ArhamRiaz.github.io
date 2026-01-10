@@ -2,7 +2,7 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { ModeWatcher, toggleMode } from 'mode-watcher';
-	import { onMount } from 'svelte';
+	import Header from '$lib/components/Header.svelte';
 
 	let { children } = $props();
 
@@ -15,6 +15,7 @@
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
+
 <ModeWatcher />
 <div
 	class="min-h-screen bg-stone-100 text-stone-800 transition-colors dark:bg-zinc-950 dark:text-zinc-100"

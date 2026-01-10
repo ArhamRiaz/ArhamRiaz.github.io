@@ -1,6 +1,6 @@
 <script>
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
-
+	import Header from '$lib/components/Header.svelte';
 	import { experiences } from '$lib/components/experience/Experience';
 </script>
 
@@ -8,6 +8,8 @@
 	<title>Arham's Website</title>
 	<meta name="description" content="Welcome to my personal website and portfolio!" />
 </svelte:head>
+
+<!-- <Header /> -->
 
 <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 	<section class="home-section">
