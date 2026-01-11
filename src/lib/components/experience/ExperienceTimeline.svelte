@@ -3,13 +3,25 @@
 	import ExperienceModal from './ExperienceModal.svelte';
 	import ExperienceCard from './ExperienceCard.svelte';
 	import type { Experience } from './Experience';
-	import { fade, scale } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
 
 	export let experiences;
-	let activeId: string | null = null;
+	let activeIds: Set<string> = new Set();
+
+	function toggle(id: string) {
+		if (activeIds.has(id)) {
+			const copy = new Set(activeIds);
+			copy.delete(id);
+			activeIds = copy;
+		} else {
+			activeIds = new Set(activeIds).add(id) as Set<string>;
+			activeIds = new Set(activeIds);
+		}
+	}
 
 	function collapse() {
-		activeId = null;
+		activeIds = new Set();
 	}
 
 	let selected: Experience | null | any = null;
@@ -27,26 +39,31 @@
 
 	<div
 		class="grid grid-cols-1
-				gap-6
-				sm:grid-cols-2
-				lg:grid-cols-3"
+					gap-6
+					sm:grid-cols-2
+					lg:grid-cols-3"
 	>
-		{#each experiences as exp}
-			<button type="button" on:click|stopPropagation class="relative">
-				{#if activeId === exp.id}
-					<!-- Expanded card -->
-					<div in:scale={{ duration: 200 }} out:fade>
+		{#each experiences as exp (exp.id)}
+			<button type="button" on:click|stopPropagation class="relative" animate:flip>
+				{#if activeIds.has(exp.id)}
+					<div
+						in:fly={{ y: 12, duration: 240 }}
+						out:fly={{ y: -8, duration: 200 }}
+						role="button"
+						tabindex="0"
+						on:click={() => toggle(exp.id)}
+						on:keydown={(e) => e.key === 'Enter' && toggle(exp.id)}
+					>
 						<ExperienceCard {...exp} />
 					</div>
 				{:else}
-					<!-- Preview card -->
 					<div
 						role="button"
 						tabindex="0"
-						in:fade
-						out:fade
-						on:click={() => (activeId = exp.id)}
-						on:keydown={(e) => e.key === 'Enter' && (activeId = exp.id)}
+						in:fly={{ y: -8, duration: 200 }}
+						out:fly={{ y: 12, duration: 200 }}
+						on:click={() => toggle(exp.id)}
+						on:keydown={(e) => e.key === 'Enter' && toggle(exp.id)}
 					>
 						<ExperiencePreview {...exp} />
 					</div>

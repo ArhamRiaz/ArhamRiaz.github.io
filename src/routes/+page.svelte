@@ -38,7 +38,10 @@
 			</div>
 		</section>
 	</div>
+
 	<section class="px-4 sm:px-6 lg:px-12">
 		<ExperienceTimeline {experiences} />
 	</section>
+
+	<section class="px-4 sm:px-6 lg:px-12"></section>
 </div>

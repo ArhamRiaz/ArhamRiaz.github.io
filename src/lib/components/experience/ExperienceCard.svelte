@@ -4,6 +4,7 @@
 	export let dates;
 	export let bullets;
 	export let tech;
+	//export let expanded = false;
 </script>
 
 <div class="relative pl-10">
