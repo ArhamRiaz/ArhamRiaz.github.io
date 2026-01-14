@@ -2,6 +2,8 @@
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
 	import Header from '$lib/components/Header.svelte';
 	import { experiences } from '$lib/components/experience/Experience';
+	import { projects } from '$lib/components/projects/Projects';
+	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
 </script>
 
 <svelte:head>
@@ -43,5 +45,7 @@
 		<ExperienceTimeline {experiences} />
 	</section>
 
-	<section class="px-4 sm:px-6 lg:px-12"></section>
+	<section class="px-4 sm:px-6 lg:px-12">
+		<ProjectTimeline {projects}></ProjectTimeline>
+	</section>
 </div>

@@ -1,12 +1,13 @@
 <script lang="ts">
-	import ExperienceCard from './ExperienceCard.svelte';
-	import type { Experience } from './Experience';
 
-	export let experience: Experience | null = null;
+	import ProjectCard from './ProjectCard.svelte';
+	import type { Project } from './Projects';
+
+	export let project: Project | null = null;
 	export let onClose;
 </script>
 
-{#if experience}
+{#if project}
 	<div class="fixed inset-0 z-50 flex items-center justify-center">
 		<div
 			class="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -17,7 +18,7 @@
 		></div>
 
 		<div class="relative z-10 w-full max-w-2xl px-4">
-			<ExperienceCard {...experience} />
+			<ProjectCard {...project} />
 
 			<button
 				onclick={onClose}
