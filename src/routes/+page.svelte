@@ -11,7 +11,7 @@
 	<meta name="description" content="Welcome to my personal website and portfolio!" />
 </svelte:head>
 
-<!-- <Header /> -->
+<Header />
 <div class="mx-auto pb-12">
 	<div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
 		<section class="home-section">
