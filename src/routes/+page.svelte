@@ -11,7 +11,6 @@
 	<meta name="description" content="Welcome to my personal website and portfolio!" />
 </svelte:head>
 
-<Header />
 <div class="mx-auto pb-12">
 	<div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
 		<section class="home-section">
@@ -33,7 +32,7 @@
 
 				<p class="pt-6">Currently playing:</p>
 				<img
-					src="/hollow knight.png"
+					src="/hollow-knight-drawing.png"
 					alt="hollow knight"
 					class="inline-block h-60 w-auto rounded-2xl align-middle"
 				/>
