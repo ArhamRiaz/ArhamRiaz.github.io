@@ -44,7 +44,7 @@
 		{#if tech.length}
 			<div class="mt-4 flex flex-wrap gap-2">
 				{#each tech as t}
-					<span class="rounded-full px-3 py-1 text-xs dark:bg-zinc-800 dark:text-zinc-300">
+					<span class=" px-3 py-1 text-xs dark:bg-zinc-800 dark:text-zinc-300">
 						{t}
 					</span>
 				{/each}

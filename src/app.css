@@ -13,3 +13,18 @@
 	--color-muted: #242424;
 	--color-tertiary: #6a6a6a;
 }
+
+/* Smooth scrolling for in-page anchor links */
+:root {
+	--scroll-offset: 4rem; /* adjust to match sticky header height */
+	--header-height: 4rem; /* default header height; adjust as needed */
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Ensure anchored elements are not hidden behind sticky headers */
+[id] {
+	scroll-margin-top: var(--scroll-offset);
+}

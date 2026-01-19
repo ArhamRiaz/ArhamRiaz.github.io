@@ -1,3 +1,5 @@
+import logo from '$lib/assets/logo.png';
+
 export interface Project {
 	id: string;
 	name: string;
@@ -26,6 +28,6 @@ export const projects: Project[] = [
 			"The website you are currently on, built with SvelteKit, Typescript, TailwindCSS and good ol' HTML.",
 		github: 'https://github.com/ArhamRiaz/riaz-website',
 		tech: ['SvelteKit', 'TypeScript', 'Tailwind', 'HTML'],
-		thumbnail: '/album-tracker.png'
+		thumbnail: logo
 	}
 ];

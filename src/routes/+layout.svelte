@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/logo.png';
 	import { ModeWatcher, toggleMode } from 'mode-watcher';
 	import Header from '$lib/components/Header.svelte';
 
@@ -22,7 +22,7 @@
 >
 	<Header></Header>
 	<div class="flex">
-		<aside class="sticky top-0 h-screen w-56 shrink-0 px-12 py-24">
+		<aside class="fixed left-0 w-56 shrink-0 px-12 py-24 overflow-auto" style="top: var(--header-height); height: calc(100vh - var(--header-height));">
 			<button
 				onclick={handleToggle}
 				class="flex cursor-pointer items-center rounded-lg pb-6 text-sm opacity-80 hover:opacity-100"
@@ -39,12 +39,14 @@
 				{/if}
 			</button>
 			<nav class="flex flex-col gap-6 text-sm">
-				<a href="/" class="opacity-80 hover:opacity-100">About</a>
+				<a href="/" class="scroll-smooth opacity-80 hover:opacity-100">About</a>
 				<a href="/#experience" class="opacity-80 hover:opacity-100">Experience</a>
 				<a href="/#project" class="opacity-80 hover:opacity-100">Projects</a>
 			</nav>
 		</aside>
 
-		{@render children()}
+		<main class="flex-1 ml-56">
+			{@render children()}
+		</main>
 	</div>
 </div>

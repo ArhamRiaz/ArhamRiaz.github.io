@@ -4,6 +4,7 @@
 	import { experiences } from '$lib/components/experience/Experience';
 	import { projects } from '$lib/components/projects/Projects';
 	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
+	import HorizontalLineBreak from '$lib/components/HorizontalLineBreak.svelte';
 </script>
 
 <svelte:head>
@@ -38,10 +39,15 @@
 				/>
 			</div>
 		</section>
+		<div class="pt-12 pb-4">
+			<HorizontalLineBreak></HorizontalLineBreak>
+		</div>
 		<section class="">
 			<ExperienceTimeline {experiences} />
 		</section>
-
+		<div class="pt-12 pb-4">
+			<HorizontalLineBreak></HorizontalLineBreak>
+		</div>
 		<section class="">
 			<ProjectTimeline {projects}></ProjectTimeline>
 		</section>

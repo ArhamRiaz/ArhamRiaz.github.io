@@ -33,7 +33,7 @@
 			<div class="mt-3 flex flex-wrap gap-2">
 				{#each tech as t}
 					<span
-						class="rounded-full bg-stone-100 px-2 py-0.5 text-xs
+						class=" bg-stone-100 px-2 py-0.5 text-xs
 						       dark:bg-zinc-800"
 					>
 						{t}
