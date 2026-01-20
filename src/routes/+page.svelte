@@ -1,6 +1,5 @@
 <script>
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
-	import Header from '$lib/components/Header.svelte';
 	import { experiences } from '$lib/components/experience/Experience';
 	import { projects } from '$lib/components/projects/Projects';
 	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
@@ -12,14 +11,16 @@
 	<meta name="description" content="Welcome to my personal website and portfolio!" />
 </svelte:head>
 
-<div class="mx-auto pb-12">
-	<div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
-		<section class="home-section">
+<div class=" mx-auto pt-8 pb-12">
+	<div
+		class="mx-auto max-w-4xl rounded-xl border border-amber-600 pb-12 shadow-xl sm:px-6 lg:px-8 dark:border-white dark:bg-zinc-900"
+	>
+		<!-- <section class="home-section">
 			<div class="space-y-0.5">
 				<h1 class="text-[48px] font-semibold">Arham Riaz</h1>
 				<h4 class=" pb-4 text-[24px]">Software Developer</h4>
 			</div>
-		</section>
+		</section> -->
 
 		<section class="home-section space-y-1">
 			<h2 class="mb-8 pt-16 text-2xl font-bold">About</h2>
@@ -33,7 +34,7 @@
 
 				<p class="pt-6">Currently playing:</p>
 				<img
-					src="/hollow-knight-drawing.png"
+					src="/hollow-knight.png"
 					alt="hollow knight"
 					class="inline-block h-60 w-auto rounded-2xl align-middle"
 				/>
