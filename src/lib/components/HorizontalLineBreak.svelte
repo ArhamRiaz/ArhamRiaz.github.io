@@ -7,5 +7,5 @@
 <hr
 	aria-label={ariaLabel}
 	class={className}
-	style={`background-image: url('/line-break - Copy.png'); background-repeat: repeat-x; background-position: center; background-size: auto ${height}px; height: ${height}px; border: none;`}
+	style={`background-image: url('/line-break.png'); background-repeat: repeat-x; background-position: center; background-size: auto ${height}px; height: ${height}px; border: none;`}
 />
