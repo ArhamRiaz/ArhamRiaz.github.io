@@ -104,7 +104,8 @@
 				<ul class="flex items-center gap-3" aria-label="Socials">
 					<a
 						href="/resume/Arham_Riaz_Resume.pdf"
-						download="Arham_Riaz_Resume.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
 						class="
 								relative rounded-full px-4 py-1.5 text-sm font-medium tracking-wide
 								uppercase transition-colors duration-200
