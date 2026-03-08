@@ -124,7 +124,7 @@
 					</li>
 					<li>
 						<a
-							href="https://www.linkedin.com/in/arham-riaz-3a742222b/"
+							href="https://www.linkedin.com/in/arham-asim-riaz/"
 							target="_blank"
 							rel="noopener noreferrer"
 							class="block opacity-60 transition-opacity hover:opacity-100"
