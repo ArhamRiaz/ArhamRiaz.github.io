@@ -22,7 +22,16 @@ export const projects: Project[] = [
 		link: 'https://www.album-tracker.com/'
 	},
 	{
-		id: 'expanding-mineseeeper',
+		id: 'hoopboard',
+		name: 'Hoopboard',
+		description:
+			'An App where you can see the results of the currents days or previous days NBA games, including the box scores of your favourite players and whether they played or not',
+		github: 'https://github.com/ArhamRiaz/Hoopboard',
+		tech: ['Python', 'Javascript', 'Flask'],
+		thumbnail: './hoopboard.png'
+	},
+	{
+		id: 'expanding-minesweeeper',
 		name: 'Expanding Minesweeper',
 		description:
 			'A version of Minesweeper that expands the board from beginner to intermediate to expert once a board has been beaten, built with Java.',
