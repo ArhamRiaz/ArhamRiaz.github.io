@@ -45,7 +45,7 @@
 	on:click={collapse}
 	on:keydown={(e) => e.key === 'Escape' && collapse()}
 >
-	<h2 class="mb-8 pt-6 text-2xl font-bold">Experience</h2>
+	<!-- <h2 class="mb-8 pt-6 text-2xl font-bold">Experience</h2> -->
 
 	<div
 		class="grid grid-cols-1 gap-6

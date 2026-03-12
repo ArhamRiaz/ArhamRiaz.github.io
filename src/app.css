@@ -6,7 +6,11 @@
 	--color-primary: #333333;
 	--color-muted: #eaeaea;
 	--color-tertiary: #9e9e9e;
-	--font-racoti: 'Racoti Personal Use Regular', sans-serif; /* add this */
+	--font-racoti: 'Racoti Personal Use Regular', sans-serif;
+
+	/* New: display font for hero/headings, clean sans for body */
+	--font-display: 'Instrument Serif', Georgia, serif;
+	--font-sans: 'DM Sans', Helvetica, Arial, sans-serif;
 }
 
 .dark {
@@ -15,23 +19,28 @@
 	--color-tertiary: #6a6a6a;
 }
 
-/* Smooth scrolling for in-page anchor links */
 :root {
-	--scroll-offset: 4rem; /* adjust to match sticky header height */
-	--header-height: 4rem; /* default header height; adjust as needed */
+	--scroll-offset: 4rem;
+	--header-height: 4rem;
 }
 
 html {
 	scroll-behavior: smooth;
 }
 
-/* Ensure anchored elements are not hidden behind sticky headers */
 [id] {
 	scroll-margin-top: var(--scroll-offset);
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
+	/* Swap Helvetica for DM Sans globally */
+	font-family: var(--font-sans);
+}
+
+/* Tap highlight removed for cleaner mobile feel */
+a,
+button {
+	-webkit-tap-highlight-color: transparent;
 }
 
 @font-face {
