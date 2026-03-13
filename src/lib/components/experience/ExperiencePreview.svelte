@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="cursor-pointer rounded-xl bg-stone-100 p-5 text-left shadow-sm transition hover:-translate-y-1 hover:bg-stone-200 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+	class="cursor-pointer rounded-xl p-5 text-left transition hover:-translate-y-1 hover:bg-stone-200 dark:bg-zinc-950 dark:hover:bg-zinc-900"
 >
 	<div class="flex items-start gap-4">
 		<div

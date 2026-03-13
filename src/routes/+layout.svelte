@@ -49,7 +49,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link
-		href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
 		rel="stylesheet"
 	/>
 </svelte:head>
@@ -64,13 +64,13 @@
 		dark:bg-zinc-950 dark:text-zinc-100
 	"
 >
-	<!-- <TwinklingStars
+	<TwinklingStars
 		starImage="./single_star.png"
-		numberOfStars={20}
+		numberOfStars={30}
 		minSize={10}
 		maxSize={30}
 		twinkleSpeed={2}
-	/> -->
+	/>
 
 	<!-- ── Nav ── -->
 	<header
@@ -89,13 +89,12 @@
 				onclick={(e) => scrollToSection(e, 'about')}
 				class="font-display text-base font-semibold text-stone-900 opacity-80 transition-opacity hover:opacity-100 dark:text-zinc-100"
 			>
-				Arham Riaz
 			</a>
 
 			<!-- Right: nav links + icons -->
 			<div class="flex items-center gap-5">
 				<nav class="flex items-center gap-1">
-					{#each [['Experience', 'experience'], ['Projects', 'projects']] as [label, id]}
+					{#each [['About', 'about'], ['Experience', 'experience'], ['Projects', 'projects']] as [label, id]}
 						<a
 							href="#{id}"
 							onclick={(e) => scrollToSection(e, id)}

@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte';
 
 	// Hero word-by-word animation
-	const heroWords = ['Arham', 'Riaz'];
+	const heroWords = ['Hi,', "I'm", 'Arham', '!!!'];
 	let visibleWords = $state<boolean[]>(heroWords.map(() => false));
 	let subtitleVisible = $state(false);
 	let bioVisible = $state(false);
@@ -46,7 +46,7 @@
 	<div class="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-0">
 		{#each heroWords as word, i}
 			<span
-				class="hero-word font-display text-6xl font-semibold tracking-tight text-stone-900 md:text-6xl dark:text-zinc-50"
+				class="hero-word font-display text-6xl tracking-tight text-stone-900 md:text-6xl dark:text-zinc-50"
 				class:visible={visibleWords[i]}
 			>
 				{word}
@@ -64,7 +64,8 @@
 	<div class="bio max-w-xl space-y-4" class:visible={bioVisible}>
 		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
 			I'm a software developer just starting out my career, eager to explore more of the tech world
-			and excited to expand my skills - especially when it comes to full stack development.
+			and excited to expand my skills. I am currently a software developer at Bridge Wireless
+			Solutions
 		</p>
 		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
 			My hobbies include: rock climbing, film, the NBA, reading manga and playing video games. Feel
@@ -74,8 +75,8 @@
 </section>
 
 <!-- ── Experience ── -->
-<FadeUp delay={200 + heroWords.length * 160 + 50}>
-	<section id="experience" class="pb-32">
+<FadeUp delay={heroWords.length * 160}>
+	<section id="experience" class="pb-24">
 		<p
 			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 		>
@@ -87,9 +88,9 @@
 
 <!-- ── Projects ── -->
 <FadeUp delay={100}>
-	<section id="projects" class="pb-32">
+	<section id="projects" class="pb-24">
 		<p
-			class="mb-8 text-xs font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
+			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 		>
 			Projects
 		</p>
