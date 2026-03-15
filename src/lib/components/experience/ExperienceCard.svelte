@@ -61,7 +61,7 @@
 			<div class="mt-3 flex flex-wrap gap-2" transition:slide={{ duration: 300 }}>
 				{#each tags as tag}
 					<span
-						class="rounded-full border border-(--color-border) px-2.5 py-0.5 text-[11px] tracking-wide text-(--color-muted) dark:border-(--color-border-dark)"
+						class="rounded-full border border-(--color-border) px-2.5 py-0.5 text-[11px] tracking-wide text-stone-600 dark:border-(--color-border-dark) dark:text-zinc-400"
 					>
 						{tag}
 					</span>
