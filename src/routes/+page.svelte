@@ -5,6 +5,7 @@
 	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
 	import FadeUp from '$lib/components/FadeUp.svelte';
 	import { onMount } from 'svelte';
+	import Projects from '$lib/components/projects/Projects.svelte';
 
 	// Hero word-by-word animation
 	const heroWords = ['Hi,', "I'm", 'Arham', '!!!'];
@@ -63,13 +64,14 @@
 
 	<div class="bio max-w-xl space-y-4" class:visible={bioVisible}>
 		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
-			I'm a software developer just starting out my career, eager to explore more of the tech world
-			and excited to expand my skills. I am currently a software developer at Bridge Wireless
-			Solutions
+			I'm a software developer at Bridge Wireless Solutions, just starting out my career, eager to
+			explore more of the tech world and excited to expand my skills. I enjoy spending most of my
+			time building projects that answer a question or need that I or others have, and that are
+			functional and fun.
 		</p>
 		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
 			My hobbies include: rock climbing, film, the NBA, reading manga and playing video games. Feel
-			free to get in contact with me, whether to talk programming, tech or anything else!!
+			free to get in contact with me to talk about anything :)
 		</p>
 	</div>
 </section>
@@ -85,9 +87,9 @@
 		<ExperienceTimeline {experiences} />
 	</section>
 </FadeUp>
-
+<Projects></Projects>
 <!-- ── Projects ── -->
-<FadeUp delay={100}>
+<!-- <FadeUp delay={100}>
 	<section id="projects" class="pb-24">
 		<p
 			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
@@ -96,7 +98,7 @@
 		</p>
 		<ProjectTimeline {projects} />
 	</section>
-</FadeUp>
+</FadeUp> -->
 
 <!-- ── Currently ── -->
 <FadeUp delay={150}>

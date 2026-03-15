@@ -66,7 +66,7 @@
 >
 	<TwinklingStars
 		starImage="./single_star.png"
-		numberOfStars={30}
+		numberOfStars={20}
 		minSize={10}
 		maxSize={30}
 		twinkleSpeed={2}
@@ -99,7 +99,7 @@
 							href="#{id}"
 							onclick={(e) => scrollToSection(e, id)}
 							class="
-								relative px-3 py-1.5 text-sm transition-colors duration-200
+								text-m relative px-3 py-1.5 transition-colors duration-200
 								{activeSection === id
 								? 'text-stone-900 dark:text-zinc-100'
 								: 'text-stone-400 hover:text-stone-700 dark:text-zinc-500 dark:hover:text-zinc-300'}
@@ -116,17 +116,15 @@
 
 				<div class="h-4 w-px bg-stone-200 dark:bg-zinc-800"></div>
 
-				<!-- Resume -->
 				<a
 					href="/resume/Arham_Riaz_Resume.pdf"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-sm text-stone-400 transition-colors hover:text-stone-700 dark:text-zinc-500 dark:hover:text-zinc-300"
+					class="text-m text-stone-400 transition-colors hover:text-stone-700 dark:text-zinc-500 dark:hover:text-zinc-300"
 				>
 					Resume ↗
 				</a>
 
-				<!-- GitHub -->
 				<a
 					href="https://github.com/ArhamRiaz"
 					target="_blank"
@@ -137,7 +135,6 @@
 					<img src="./github.png" alt="" class="h-4 w-4 dark:invert" />
 				</a>
 
-				<!-- LinkedIn -->
 				<a
 					href="https://www.linkedin.com/in/arham-asim-riaz/"
 					target="_blank"
@@ -157,9 +154,9 @@
 					aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
 				>
 					{#if theme === 'dark'}
-						<img src="./sun_icon.png" alt="" class="h-4 w-4" />
+						<img src="./sun_icon.png" alt="" class="h-6 w-6" />
 					{:else}
-						<img src="./star_icon.png" alt="" class="h-4 w-4" />
+						<img src="./star_icon.png" alt="" class="h-6 w-6" />
 					{/if}
 				</button>
 			</div>
