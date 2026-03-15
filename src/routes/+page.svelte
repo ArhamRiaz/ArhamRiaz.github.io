@@ -43,7 +43,7 @@
 </svelte:head>
 
 <!-- ── Hero ── -->
-<section id="about" class="pt-16 pb-32">
+<section id="about" class="pt-16 pb-16">
 	<div class="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-0">
 		{#each heroWords as word, i}
 			<span
@@ -76,23 +76,11 @@
 	</div>
 </section>
 
-<FadeUp delay={heroWords.length * 160}>
-	<section id="experience" class="pb-32">
+<!-- ── Currently LAST PLAYED SONG ── -->
+<FadeUp delay={150}>
+	<section id="currently" class="pb-16">
 		<p
 			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
-		>
-			Work Experience
-		</p>
-		<ExperienceTimeline {experiences} />
-	</section>
-</FadeUp>
-<Projects></Projects>
-
-<!-- ── Currently ── -->
-<FadeUp delay={150}>
-	<section id="currently" class="pb-32">
-		<p
-			class="mb-8 text-xs font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 		>
 			Currently
 		</p>
@@ -121,11 +109,22 @@
 	</section>
 </FadeUp>
 
+<FadeUp delay={160}>
+	<section id="experience" class="pb-16">
+		<p
+			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
+		>
+			Work Experience
+		</p>
+		<ExperienceTimeline {experiences} />
+	</section>
+</FadeUp>
+<Projects></Projects>
+
 <!-- ── Footer ── -->
 <footer class="border-t border-stone-200 py-12 dark:border-zinc-800">
 	<p class="text-xs text-stone-400 dark:text-zinc-600">
-		Built with SvelteKit & TailwindCSS · <span class="tabular-nums">{new Date().getFullYear()}</span
-		>
+		Built with SvelteKit, TailwindCSS and my iPad
 	</p>
 </footer>
 
