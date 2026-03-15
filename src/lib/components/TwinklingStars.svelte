@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	// Customize these settings
-	// Use root-relative path for static assets (served from `/`)
 	export let starImage = './single_star.png';
 	export let numberOfStars = 50;
-	export let minSize = 10; // Minimum star size in pixels
-	export let maxSize = 30; // Maximum star size in pixels
-	export let twinkleSpeed = 2; // Base twinkle animation duration in seconds
+	export let minSize = 10;
+	export let maxSize = 30;
+	export let twinkleSpeed = 2;
+
+	// Stars won't appear in the horizontal band between these two percentages.
+	// 22–78% covers a centered max-w-3xl column on most screens.
+	export let deadZoneLeft = 22;
+	export let deadZoneRight = 78;
 
 	type Star = {
 		id: number;
@@ -21,16 +24,22 @@
 
 	let stars: Star[] = [];
 
+	function randomLeft(): number {
+		// Randomly place in left margin OR right margin — never the center band
+		return Math.random() < 0.5
+			? Math.random() * deadZoneLeft
+			: deadZoneRight + Math.random() * (100 - deadZoneRight);
+	}
+
 	onMount(() => {
-		// Generate stars with random positions and properties
 		stars = Array.from({ length: numberOfStars }, (_, i) => ({
 			id: i,
-			top: Math.random() * 100, // Random vertical position (%)
-			left: Math.random() * 100, // Random horizontal position (%)
-			size: Math.random() * (maxSize - minSize) + minSize, // Random size
-			duration: twinkleSpeed + Math.random() * 2, // Varied twinkle speed
-			delay: Math.random() * 3, // Random animation delay
-			intensity: Math.random() * 0.5 + 0.5 // Brightness variation (0.5-1)
+			top: Math.random() * 100,
+			left: randomLeft(),
+			size: Math.random() * (maxSize - minSize) + minSize,
+			duration: twinkleSpeed + Math.random() * 2,
+			delay: Math.random() * 3,
+			intensity: Math.random() * 0.5 + 0.5
 		}));
 	});
 </script>

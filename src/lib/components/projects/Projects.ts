@@ -8,12 +8,13 @@ export interface Project {
 	tech: string[];
 	thumbnail: string;
 	link?: string;
+	video?: string;
 }
 
 export const projects: Project[] = [
 	{
 		id: 'album',
-		name: 'Album Tracking Website',
+		name: 'Album Tracking Web App',
 		description:
 			'A website designed to allow users to track what music albums they have listened to and want to listen to. Built and deployed using AWS (Amplify, Lambda, DynamoDB, Route53) to gain experience.',
 		github: 'https://github.com/ArhamRiaz/AlbumListProject',
@@ -38,14 +39,14 @@ export const projects: Project[] = [
 		github: 'https://github.com/ArhamRiaz/expanding-minesweeper',
 		tech: ['Java'],
 		thumbnail: './minesweeper.png'
-	},
-	{
-		id: 'personal-website',
-		name: 'This Website!!',
-		description:
-			"The website you are currently on, built with SvelteKit, Typescript, TailwindCSS and good ol' HTML.",
-		github: 'https://github.com/ArhamRiaz/riaz-website',
-		tech: ['SvelteKit', 'TypeScript', 'Tailwind', 'HTML'],
-		thumbnail: logo
 	}
+	// {
+	// 	id: 'personal-website',
+	// 	name: 'This Website!!',
+	// 	description:
+	// 		"The website you are currently on, built with SvelteKit, Typescript, TailwindCSS and good ol' HTML.",
+	// 	github: 'https://github.com/ArhamRiaz/riaz-website',
+	// 	tech: ['SvelteKit', 'TypeScript', 'Tailwind', 'HTML'],
+	// 	thumbnail: logo
+	// }
 ];

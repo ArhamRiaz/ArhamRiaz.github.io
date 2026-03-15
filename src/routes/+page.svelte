@@ -1,87 +1,167 @@
-<script>
+<script lang="ts">
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
 	import { experiences } from '$lib/components/experience/Experience';
-	import { projects } from '$lib/components/projects/Projects';
-	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
-	import HorizontalLineBreak from '$lib/components/HorizontalLineBreak.svelte';
-	import Typewriter from '$lib/components/Typewriter.svelte';
+	import CurrentlyListening from '$lib/components/CurrentlyListening.svelte';
+	import FadeUp from '$lib/components/FadeUp.svelte';
+	import { onMount } from 'svelte';
+	import Projects from '$lib/components/projects/Projects.svelte';
+
+	// Hero word-by-word animation
+	const heroWords = ['Hi,', "I'm", 'Arham', '!!!'];
+	let visibleWords = $state<boolean[]>(heroWords.map(() => false));
+	let subtitleVisible = $state(false);
+	let bioVisible = $state(false);
+
+	onMount(() => {
+		heroWords.forEach((_, i) => {
+			setTimeout(
+				() => {
+					visibleWords[i] = true;
+				},
+				200 + i * 160
+			);
+		});
+		setTimeout(
+			() => {
+				subtitleVisible = true;
+			},
+			200 + heroWords.length * 160 + 50
+		);
+		setTimeout(
+			() => {
+				bioVisible = true;
+			},
+			200 + heroWords.length * 160 + 150
+		);
+	});
 </script>
 
 <svelte:head>
-	<title>Arham's Website</title>
-	<meta name="description" content="Welcome to my personal website and portfolio!" />
+	<title>Arham Riaz</title>
+	<meta name="description" content="Software developer. Rock climber. NBA fan." />
 </svelte:head>
 
-<div class="mx-auto pt-8 pb-12">
-	<div class="flex items-start gap-6">
-		<div
-			class="min-w-0 flex-1 rounded-xl border border-white bg-white pb-12 shadow-2xl sm:px-6 lg:px-8 dark:border-black dark:bg-zinc-900 dark:shadow-white"
+<!-- ── Hero ── -->
+<section id="about" class="pt-16 pb-16">
+	<div class="mb-6 flex flex-wrap items-baseline gap-x-4 gap-y-0">
+		{#each heroWords as word, i}
+			<span
+				class="hero-word font-display text-6xl tracking-tight text-stone-900 md:text-6xl dark:text-zinc-50"
+				class:visible={visibleWords[i]}
+			>
+				{word}
+			</span>
+		{/each}
+	</div>
+
+	<p
+		class="subtitle mb-8 text-base font-medium tracking-widest text-stone-400 uppercase dark:text-zinc-500"
+		class:visible={subtitleVisible}
+	>
+		Software Developer
+	</p>
+
+	<div class="bio max-w-xl space-y-4" class:visible={bioVisible}>
+		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
+			I'm a software developer at Bridge Wireless Solutions, just starting out my career, eager to
+			explore more of the tech world and excited to expand my skills. I enjoy spending most of my
+			time building projects that answer a question or need that I or others have, and that are
+			functional and fun.
+		</p>
+		<p class="text-lg leading-relaxed text-stone-600 dark:text-zinc-400">
+			My hobbies include: rock climbing, film, the NBA, reading manga and playing video games. Feel
+			free to get in contact with me to talk about anything :)
+		</p>
+	</div>
+</section>
+
+<!-- ── Currently LAST PLAYED SONG ── -->
+<FadeUp delay={150}>
+	<section id="currently" class="pb-16">
+		<p
+			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 		>
-			<section id="about" class="home-section space-y-1">
-				<div class="pt-18 text-sm md:text-base">
-					<div class="pb-6 text-3xl font-semibold md:text-3xl">
-						<Typewriter text="Hi I'm Arham!!" speed={60} />
-					</div>
-					<p class=" text-xl">
-						I'm a software developer just starting out my career, eager to explore more of the
-						programming world and excited to expand my skills - especially when it comes to full
-						stack development.
-					</p>
-					<p class="pt-4 text-xl">
-						My hobbies include: rock climbing, film, the NBA, reading manga and playing video games.
-						Feel free to get in contact with me, whether to talk programming, tech or anything
-						else!!
-					</p>
-				</div>
-			</section>
-
-			<div class="pt-12 pb-4">
-				<HorizontalLineBreak />
-			</div>
-			<section id="experience">
-				<ExperienceTimeline {experiences} />
-			</section>
-			<div class="pt-12 pb-4">
-				<HorizontalLineBreak />
-			</div>
-			<section id="projects">
-				<ProjectTimeline {projects} />
-			</section>
-		</div>
-
-		<!-- ── Right sidebar ── -->
-		<aside class="hidden w-52 shrink-0 xl:block" style="position: sticky; top: 6rem;">
-			<div class="flex flex-col gap-6">
+			Currently
+		</p>
+		<div class="flex flex-wrap gap-6">
+			<div class="group w-40">
+				<p class="mb-3 text-xs text-stone-400 dark:text-zinc-500">Playing</p>
 				<div
-					class="rounded-xl border border-white bg-white p-4 shadow-md dark:border-black dark:bg-zinc-900 dark:shadow-white"
+					class="overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
 				>
-					<p
-						class="mb-3 text-center text-xs font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
-					>
-						Currently Playing
-					</p>
-					<img
-						src="./ds3.jpg"
-						alt="Dark Souls III"
-						class="w-full rounded-lg object-cover shadow-sm"
-					/>
+					<img src="./ds3.jpg" alt="Dark Souls III" class="w-full object-cover" />
 				</div>
-
+			</div>
+			<div class="group w-40">
+				<p class="mb-3 text-xs text-stone-400 dark:text-zinc-500">Reading</p>
 				<div
-					class="rounded-xl border border-white bg-white p-4 shadow-md dark:border-black dark:bg-zinc-900 dark:shadow-white"
+					class="overflow-hidden rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105"
 				>
-					<p
-						class="mb-3 text-center text-xs font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
-					>
-						Currently Reading
-					</p>
 					<img
 						src="./malcolm-x-bio.jpg"
 						alt="The Autobiography of Malcolm X"
-						class="w-full rounded-lg object-cover shadow-sm"
+						class="w-full object-cover"
 					/>
 				</div>
 			</div>
-		</aside>
-	</div>
-</div>
+			<CurrentlyListening></CurrentlyListening>
+		</div>
+	</section>
+</FadeUp>
+
+<FadeUp delay={160}>
+	<section id="experience" class="pb-16">
+		<p
+			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
+		>
+			Work Experience
+		</p>
+		<ExperienceTimeline {experiences} />
+	</section>
+</FadeUp>
+<Projects></Projects>
+
+<!-- ── Footer ── -->
+<footer class="border-t border-stone-200 py-12 dark:border-zinc-800">
+	<p class="text-xs text-stone-400 dark:text-zinc-600">
+		Built with SvelteKit, TailwindCSS and my iPad
+	</p>
+</footer>
+
+<style>
+	.hero-word {
+		opacity: 0;
+		transform: translateY(24px);
+		transition:
+			opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	.hero-word.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.subtitle {
+		opacity: 0;
+		transform: translateY(12px);
+		transition:
+			opacity 0.5s ease 0s,
+			transform 0.5s ease 0s;
+	}
+	.subtitle.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.bio {
+		opacity: 0;
+		transform: translateY(12px);
+		transition:
+			opacity 0.5s ease 0s,
+			transform 0.5s ease 0s;
+	}
+	.bio.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+</style>

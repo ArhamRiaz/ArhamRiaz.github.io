@@ -1,82 +1,53 @@
 <script lang="ts">
 	import ExperiencePreview from './ExperiencePreview.svelte';
-	import ExperienceModal from './ExperienceModal.svelte';
 	import ExperienceCard from './ExperienceCard.svelte';
-	import type { Experience } from './Experience';
-	import { fade, fly, crossfade } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
 
-	export let experiences;
+	export let experiences: any[];
+
 	let activeIds: Set<string> = new Set();
 
 	function toggle(id: string) {
-		if (activeIds.has(id)) {
-			const copy = new Set(activeIds);
+		const copy = new Set(activeIds);
+		if (copy.has(id)) {
 			copy.delete(id);
-			activeIds = copy;
 		} else {
-			activeIds = new Set(activeIds).add(id) as Set<string>;
-			activeIds = new Set(activeIds);
+			copy.add(id);
 		}
+		activeIds = copy;
 	}
-
-	function collapse() {
-		activeIds = new Set();
-	}
-
-	let selected: Experience | null | any = null;
-
-	const [send, receive] = crossfade({
-		duration: (d) => Math.max(0, d * 0),
-		fallback(node, params) {
-			return {
-				duration: 0,
-				css: (t) => `opacity: ${t}`
-			};
-		}
-	});
 </script>
 
-<section
-	id="experience"
-	class="mx-auto max-w-5xl"
-	role="button"
-	tabindex="0"
-	on:click={collapse}
-	on:keydown={(e) => e.key === 'Escape' && collapse()}
->
-	<h2 class="mb-8 pt-6 text-2xl font-bold">Experience</h2>
-
-	<div
-		class="grid grid-cols-1 gap-6
-		"
-	>
+<section id="experience">
+	<div>
 		{#each experiences as exp (exp.id)}
-			<button type="button" on:click|stopPropagation class="relative" animate:flip>
+			<div
+				class="border-b border-(--color-border) last:border-0 dark:border-(--color-border-dark)"
+				role="button"
+				tabindex="0"
+				on:click={() => toggle(exp.id)}
+				on:keydown={(e) => e.key === 'Enter' && toggle(exp.id)}
+			>
 				{#if activeIds.has(exp.id)}
-					<div
-						in:receive={{ key: exp.id }}
-						role="button"
-						tabindex="0"
-						on:click={() => toggle(exp.id)}
-						on:keydown={(e) => e.key === 'Enter' && toggle(exp.id)}
-					>
-						<ExperienceCard {...exp} />
-					</div>
+					<ExperienceCard
+						company={exp.company}
+						role={exp.role}
+						period={exp.dates}
+						location={exp.location}
+						bullets={exp.bullets}
+						tags={exp.tech}
+						link={exp.link}
+					/>
 				{:else}
-					<div
-						role="button"
-						tabindex="0"
-						out:send={{ key: exp.id }}
-						on:click={() => toggle(exp.id)}
-						on:keydown={(e) => e.key === 'Enter' && toggle(exp.id)}
-					>
-						<ExperiencePreview {...exp} />
-					</div>
+					<ExperiencePreview
+						company={exp.company}
+						role={exp.role}
+						period={exp.dates}
+						location={exp.location}
+						tech={exp.tech}
+						link={exp.link}
+					/>
 				{/if}
-			</button>
+			</div>
 		{/each}
 	</div>
-
-	<ExperienceModal experience={selected} onClose={() => (selected = null)} />
 </section>
