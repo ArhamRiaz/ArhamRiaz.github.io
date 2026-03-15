@@ -1,51 +1,69 @@
-<script>
-	export let company;
-	export let role;
-	export let dates;
-	export let bullets;
-	export let tech;
-	export let logo;
-	//export let expanded = false;
+<script lang="ts">
+	import { slide } from 'svelte/transition';
+
+	export let company: string;
+	export let role: string;
+	export let period: string;
+	export let location: string = '';
+	export let bullets: string[] = [];
+	export let tags: string[] = [];
+	export let link: string = '';
 </script>
 
-<div class="relative">
-	<!-- Timeline dot -->
-	<!-- <span class="absolute top-2 left-3 h-3 w-3 rounded-full bg-indigo-500"></span> -->
+<div
+	class="group grid cursor-pointer grid-cols-[8rem_1fr] gap-x-8 py-6 transition-opacity hover:opacity-60"
+>
+	<!-- Date -->
+	<p class="shrink-0 pt-0.5 text-xs leading-relaxed text-stone-600 tabular-nums dark:text-zinc-400">
+		{period}
+	</p>
 
-	<div
-		class="rounded-xl bg-stone-100 p-5 text-left shadow-sm hover:bg-stone-200 dark:bg-zinc-950 dark:hover:bg-zinc-900"
-	>
-		<div class="flex flex-col gap-1 text-left sm:flex-row sm:items-center sm:justify-start">
-			<div
-				class="flex h-12 w-12 items-center justify-center rounded-lg
-			       bg-stone-200 text-sm font-semibold
-			       dark:bg-zinc-800"
-			>
-				<img src={logo} alt="logo" />
-			</div>
-			<div class="ml-3">
-				<h3 class="text-left text-lg font-semibold text-black dark:text-white">
-					{role}
-				</h3>
-				<p class="text-sm text-zinc-400">{company}</p>
-			</div>
-			<span class="ml-auto text-sm text-zinc-500">{dates}</span>
+	<!-- Content -->
+	<div>
+		<div class="mb-0.5 flex flex-wrap items-baseline gap-x-2">
+			{#if link}
+				<a
+					href={link}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-base font-medium text-(--color-ink) transition-opacity hover:opacity-60 dark:text-(--color-ink-dark)"
+					on:click|stopPropagation
+				>
+					{company} ↗
+				</a>
+			{:else}
+				<span class="text-base font-medium text-(--color-ink) dark:text-(--color-ink-dark)">
+					{company}
+				</span>
+			{/if}
+			<span class="text-sm text-stone-600 dark:text-zinc-400">{role}</span>
 		</div>
 
-		<ul class="mt-4 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
-			{#each bullets as bullet}
-				<li class="flex gap-2">
-					<span class="mt-1 text-indigo-400">•</span>
-					<span>{bullet}</span>
-				</li>
-			{/each}
-		</ul>
+		{#if location}
+			<p class="mt-0.5 text-xs text-stone-600 dark:text-zinc-400">{location}</p>
+		{/if}
 
-		{#if tech.length}
-			<div class="mt-4 flex flex-wrap gap-2">
-				{#each tech as t}
-					<span class=" px-3 py-1 text-xs dark:bg-zinc-800 dark:text-zinc-300">
-						{t}
+		<!-- Bullets — slide in when expanded -->
+		{#if bullets.length}
+			<ul class="mt-4 space-y-2" transition:slide={{ duration: 300 }}>
+				{#each bullets as bullet}
+					<li class="flex gap-3 text-sm leading-relaxed text-stone-600 dark:text-zinc-400">
+						<span
+							class="mt-2 h-1 w-1 shrink-0 rounded-full bg-stone-600 opacity-50 dark:bg-zinc-400"
+						></span>
+						{bullet}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+
+		{#if tags.length}
+			<div class="mt-3 flex flex-wrap gap-2" transition:slide={{ duration: 300 }}>
+				{#each tags as tag}
+					<span
+						class="rounded-full border border-(--color-border) px-2.5 py-0.5 text-[11px] tracking-wide text-(--color-muted) dark:border-(--color-border-dark)"
+					>
+						{tag}
 					</span>
 				{/each}
 			</div>

@@ -1,45 +1,55 @@
-<script>
-	// export let experience;
-	export let company;
-	export let role;
-	export let tech;
-	export let logo;
-	export let dates;
+<script lang="ts">
+	export let company: string;
+	export let role: string;
+	export let period: string;
+	export let location: string = '';
+	export let tech: string[] = [];
+	export let link: string = '';
 </script>
 
 <div
-	class="cursor-pointer rounded-xl p-5 text-left transition hover:-translate-y-1 hover:bg-stone-200 dark:bg-zinc-950 dark:hover:bg-zinc-900"
+	class="group grid cursor-pointer grid-cols-[8rem_1fr] gap-x-8 py-6 transition-opacity hover:opacity-60"
 >
-	<div class="flex items-start gap-4">
-		<div
-			class="flex h-12 w-12 items-center justify-center rounded-lg
-			       bg-stone-200 text-sm font-semibold
-			       dark:bg-zinc-800"
-		>
-			<img src={logo} alt="logo" />
+	<!-- Date -->
+	<p class="shrink-0 pt-0.5 text-xs leading-relaxed text-stone-600 tabular-nums dark:text-zinc-400">
+		{period}
+	</p>
+
+	<!-- Content -->
+	<div>
+		<div class="mb-0.5 flex flex-wrap items-baseline gap-x-2">
+			{#if link}
+				<a
+					href={link}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-base font-medium text-(--color-ink) transition-opacity hover:opacity-60 dark:text-(--color-ink-dark)"
+					on:click|stopPropagation
+				>
+					{company} ↗
+				</a>
+			{:else}
+				<span class="text-base font-medium text-(--color-ink) dark:text-(--color-ink-dark)">
+					{company}
+				</span>
+			{/if}
+			<span class="text-sm text-stone-600 dark:text-zinc-400">{role}</span>
 		</div>
 
-		<div class="flex-1 text-left">
-			<!-- <h3 class="font-medium">{experience.role}</h3>
-			<p class="text-sm text-zinc-500">{experience.company}</p> -->
-			<div class="flex flex-col gap-1 text-left sm:flex-row sm:items-center sm:justify-start">
-				<div>
-					<h3 class="text-lg font-semibold">{role}</h3>
-					<p class="text-sm text-zinc-400">{company}</p>
-				</div>
-				<span class="ml-auto text-sm text-zinc-500">{dates}</span>
-			</div>
+		{#if location}
+			<p class="mt-0.5 text-xs text-stone-600 dark:text-zinc-400">{location}</p>
+		{/if}
 
+		{#if tech.length}
 			<div class="mt-3 flex flex-wrap gap-2">
-				{#each tech as t}
+				{#each tech as tag}
 					<span
-						class=" bg-stone-100 px-2 py-0.5 text-xs
-						       dark:bg-zinc-800"
+						class="rounded-full border border-(--color-border) px-2.5 py-0.5 text-[11px] tracking-wide text-stone-600 dark:border-(--color-border-dark) dark:text-zinc-400"
 					>
-						{t}
+						{tag}
 					</span>
 				{/each}
 			</div>
-		</div>
+		{/if}
 	</div>
 </div>

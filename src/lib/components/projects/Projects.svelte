@@ -6,7 +6,6 @@
 
 <section id="projects" class="pb-32">
 	<div class="flex items-start gap-16">
-		<!-- Main projects column -->
 		<div class="min-w-0 flex-1">
 			<FadeUp>
 				<p

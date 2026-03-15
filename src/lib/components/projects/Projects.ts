@@ -14,7 +14,7 @@ export interface Project {
 export const projects: Project[] = [
 	{
 		id: 'album',
-		name: 'Album Tracking Website',
+		name: 'Album Tracking Web App',
 		description:
 			'A website designed to allow users to track what music albums they have listened to and want to listen to. Built and deployed using AWS (Amplify, Lambda, DynamoDB, Route53) to gain experience.',
 		github: 'https://github.com/ArhamRiaz/AlbumListProject',

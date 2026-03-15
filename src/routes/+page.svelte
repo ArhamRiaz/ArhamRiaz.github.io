@@ -76,29 +76,17 @@
 	</div>
 </section>
 
-<!-- ── Experience ── -->
 <FadeUp delay={heroWords.length * 160}>
-	<section id="experience" class="pb-24">
+	<section id="experience" class="pb-32">
 		<p
 			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 		>
-			Experience
+			Work Experience
 		</p>
 		<ExperienceTimeline {experiences} />
 	</section>
 </FadeUp>
 <Projects></Projects>
-<!-- ── Projects ── -->
-<!-- <FadeUp delay={100}>
-	<section id="projects" class="pb-24">
-		<p
-			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
-		>
-			Projects
-		</p>
-		<ProjectTimeline {projects} />
-	</section>
-</FadeUp> -->
 
 <!-- ── Currently ── -->
 <FadeUp delay={150}>
