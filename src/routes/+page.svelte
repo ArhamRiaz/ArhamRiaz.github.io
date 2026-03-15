@@ -1,8 +1,7 @@
 <script lang="ts">
 	import ExperienceTimeline from '$lib/components/experience/ExperienceTimeline.svelte';
 	import { experiences } from '$lib/components/experience/Experience';
-	import { projects } from '$lib/components/projects/Projects';
-	import ProjectTimeline from '$lib/components/projects/ProjectTimeline.svelte';
+	import CurrentlyListening from '$lib/components/CurrentlyListening.svelte';
 	import FadeUp from '$lib/components/FadeUp.svelte';
 	import { onMount } from 'svelte';
 	import Projects from '$lib/components/projects/Projects.svelte';
@@ -105,6 +104,7 @@
 					/>
 				</div>
 			</div>
+			<CurrentlyListening></CurrentlyListening>
 		</div>
 	</section>
 </FadeUp>

@@ -52,6 +52,15 @@
 		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
 		rel="stylesheet"
 	/>
+	<script>
+		const stored = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		if (stored === 'light') {
+			document.documentElement.classList.remove('dark');
+		} else {
+			document.documentElement.classList.add('dark');
+		}
+	</script>
 </svelte:head>
 
 <ModeWatcher />
