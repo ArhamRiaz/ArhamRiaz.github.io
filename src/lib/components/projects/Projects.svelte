@@ -7,7 +7,7 @@
 <section id="projects" class="pb-32">
 	<div class="flex items-start gap-16">
 		<div class="min-w-0 flex-1">
-			<FadeUp>
+			<FadeUp delay={160}>
 				<p
 					class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
 				>
