@@ -23,6 +23,15 @@ export const projects: Project[] = [
 		link: 'https://www.album-tracker.com/'
 	},
 	{
+		id: 'wordle',
+		name: 'Wordle Solving Agent',
+		description:
+			'A Reinforcement Learning project designed to solve the popular game Wordle. Consists of a custom Gymnasium environment and multiple agents designed around different Reinforcement Learning algorithms - Monte Carlo, A2C, PPO and SARSA.  ',
+		github: 'https://github.com/TonyTu02/COMP4010ProjectHangman/tree/Riaz',
+		tech: ['Python', 'Gymnasium', 'PyTorch', 'Reinforcement Learning'],
+		thumbnail: './wordle-fail.png'
+	},
+	{
 		id: 'hoopboard',
 		name: 'Hoopboard',
 		description:

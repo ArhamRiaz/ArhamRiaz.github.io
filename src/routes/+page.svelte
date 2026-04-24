@@ -38,7 +38,7 @@
 
 <svelte:head>
 	<title>Arham Riaz</title>
-	<meta name="description" content="Software developer. Rock climber. NBA fan." />
+	<meta name="description" content="Software developer." />
 </svelte:head>
 
 <!-- ── Hero ── -->
@@ -76,7 +76,7 @@
 </section>
 
 <!-- ── Currently LAST PLAYED SONG ── -->
-<FadeUp delay={150}>
+<FadeUp delay={550}>
 	<section id="currently" class="pb-16">
 		<p
 			class="mb-8 text-xl font-semibold tracking-widest text-stone-400 uppercase dark:text-zinc-500"
